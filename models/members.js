@@ -5,7 +5,7 @@ name: { type: String, required: true },
 title: { type: String, required: true },
 img: String,
 bio: String,
-accomplishments: String,
+accomplishments: [String],
 contact: [String],
 location: String,
 tags: [String]
