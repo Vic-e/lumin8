@@ -18,7 +18,7 @@ app.use(methodOverride('_method'));
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI)
 mongoose.connection.once('open', () =>{
-  console.log('connected to mongo')
+  console.log('connected x mongo')
 });
 
 // IMPORTING CONTROLLERS
