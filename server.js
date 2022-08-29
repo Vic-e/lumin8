@@ -23,7 +23,7 @@ mongoose.connection.once('open', () =>{
 
 
 app.get('/', (req, res) => {
-			res.send('Hello World');
+			res.redirect('/members');
 });
 
 // IMPORTING CONTROLLERS

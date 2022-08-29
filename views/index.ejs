@@ -1,27 +1,75 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-   <link rel="stylesheet" href="https://cdn.jsd>elivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-   <link rel="stylesheet" href="/../style.css">
-    <title>Lumin8</title>
-  </head>
-  <body>
+<%- include('./partials/header.ejs') %>
   <div class="container">
   <div class="row">
-  <div class="col-8">
-    Lumin8
-  </div>
   <div class="col-4">
+    <a href="/members">Lumin8</a>
+  </div>
+  <div class="col-8">
+      <a href="/members/new">Add a New Member</a>
     <form action="" method="POST">
 <input type="search" id="search" name="search" placeholder="search">
   </form>
-<% for(let i=0; i< members.length; i++){%>
-<a href=""></a>
+  <table>
+
+<% for(let i = 0; i < members.length; i++){%>
+  <tr>
+<th>
+  <a href="/members/<%=members[i].id%>"> <img src="<%=members[i].img%>" width="150px"></a>
+</th>
+<th>
+  <a href="/members/<%=members[i].id%>"><h4><%= members[i].name %></h4></a>
+  <h6><%= members[i].title %></h6>
+  <h6><%= members[i].location %></h6>
+    <% const goldMember = members[i] %>
+    <% for(let j = 0; j < goldMember.tags.length; j++){%>
+      <span class="badge bg-secondary"><%= goldMember.tags[j] %></span>
+    <%}%>
+</th>
+
+<th>
+  <h6>Accomplishments</h6>
+  <ul>
+    <% for(let k =0; k < goldMember.accomplishments.length; k++){%>
+    <li><%= goldMember.accomplishments[k] %></li>
+  <%}%>
+  </ul>
+</th>
+</tr>
 <%}%>
+</table>
+
+<div>
+<% if (pages > 0) { %>
+                <ul class="pagination text-center">
+                    <% if (current == 1) { %>
+                        <li class="disabled"><a>First</a></li>
+                    <% } else { %>
+                        <li><a href="/members/page/1">First</a></li>
+                    <% } %>
+                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                    <% if (i !== 1) { %>
+                        <li class="disabled"><a>...</a></li>
+                    <% } %>
+                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                        <% if (i == current) { %>
+                            <li class="active"><a><%= i %></a></li>
+                        <% } else { %>
+                            <li><a href="/members/<%= i %>"><%= i %></a></li>
+                        <% } %>
+                        <% if (i == Number(current) + 4 && i < pages) { %>
+                            <li class="disabled"><a>...</a></li>
+                        <% } %>
+                    <% } %>
+                    <% if (current == pages) { %>
+                        <li class="disabled"><a>Last</a></li>
+                    <% } else { %>
+                        <li><a href="/members/page/<%= pages %>">Last</a></li>
+                    <% } %>
+                </ul>
+            <% } %>
+          </div>
 </div>
 </div>
 </div>
-  </body>
-</html>
+
+<%- include('./partials/footer.ejs') %>
