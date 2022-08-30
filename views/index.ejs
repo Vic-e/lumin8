@@ -14,7 +14,7 @@
 <td>
   <a href="/members/<%=members[i].id%>"><h4><%= members[i].name %></h4></a>
   <h6><%= members[i].title %></h6>
-  <h6><%= members[i].location %></h6>
+  <h6><i class="bi bi-geo-alt-fill"></i><%= members[i].location %></h6>
     <% const goldMember = members[i] %>
     <% for(let j = 0; j < goldMember.tags.length; j++){%>
       <span class="badge bg-dark"><%= goldMember.tags[j] %></span>
