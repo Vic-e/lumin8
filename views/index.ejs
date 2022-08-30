@@ -1,62 +1,57 @@
 <%- include('./partials/header.ejs') %>
-  <div class="container">
-  <div class="row">
-  <div class="col-4">
-    <a href="/members">Lumin8</a>
-  </div>
-  <div class="col-8">
-      <a href="/members/new">Add a New Member</a>
+  <div class="col-10 pt-4">
+      <a href="/members/new"><h5 style="text-align:right;">Add a New Member</h5></a>
     <form action="" method="POST">
-<input type="search" id="search" name="search" placeholder="search">
+<input type="search" id="search" name="search" class="form-control" placeholder="Search" aria-label="search">
   </form>
   <table>
 
 <% for(let i = 0; i < members.length; i++){%>
   <tr>
-<th>
+<td width>
   <a href="/members/<%=members[i].id%>"> <img src="<%=members[i].img%>" width="150px"></a>
-</th>
-<th>
+</td>
+<td>
   <a href="/members/<%=members[i].id%>"><h4><%= members[i].name %></h4></a>
   <h6><%= members[i].title %></h6>
   <h6><%= members[i].location %></h6>
     <% const goldMember = members[i] %>
     <% for(let j = 0; j < goldMember.tags.length; j++){%>
-      <span class="badge bg-secondary"><%= goldMember.tags[j] %></span>
+      <span class="badge bg-dark"><%= goldMember.tags[j] %></span>
     <%}%>
-</th>
-
-<th>
+</td>
+<td>
   <h6>Accomplishments</h6>
   <ul>
     <% for(let k =0; k < goldMember.accomplishments.length; k++){%>
-    <li><%= goldMember.accomplishments[k] %></li>
+    <li class="ast"><%= goldMember.accomplishments[k] %></li>
   <%}%>
   </ul>
-</th>
+</td>
 </tr>
+
 <%}%>
 </table>
 
-<div>
+<div class="pagination">
 <% if (pages > 0) { %>
                 <ul class="pagination text-center">
                     <% if (current == 1) { %>
                         <li class="disabled"><a>First</a></li>
                     <% } else { %>
-                        <li><a href="/members/page/1">First</a></li>
+                        <li><a href="/members">First</a></li>
                     <% } %>
-                    <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+                    <% var i = (Number(current) > 20 ? Number(current) - 19 : 1) %>
                     <% if (i !== 1) { %>
                         <li class="disabled"><a>...</a></li>
                     <% } %>
-                    <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+                    <% for (; i <= (Number(current) + 19) && i <= pages; i++) { %>
                         <% if (i == current) { %>
                             <li class="active"><a><%= i %></a></li>
                         <% } else { %>
                             <li><a href="/members/<%= i %>"><%= i %></a></li>
                         <% } %>
-                        <% if (i == Number(current) + 4 && i < pages) { %>
+                        <% if (i == Number(current) + 19 && i < pages) { %>
                             <li class="disabled"><a>...</a></li>
                         <% } %>
                     <% } %>

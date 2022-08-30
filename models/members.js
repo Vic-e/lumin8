@@ -6,7 +6,7 @@ title: { type: String, required: true },
 img: String,
 bio: String,
 accomplishments: [String],
-contact: [String],
+contact: {twitter:{ type: String}, instagram: {type:String}, linkedin: {type:String}, website: {type:String}},
 location: String,
 tags: [String]
 })

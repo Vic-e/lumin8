@@ -1,37 +1,49 @@
 <%- include('./partials/header.ejs') %>
+<div class="col-10 pt-4">
+<div class="container pt-5">
+<div class="row">
+<div class="col">
 <form method="POST" action="/members">
-    <fieldset>
+    <div class="form-group">
       <label for="name">Name:</label>
-      <input id="name" type="text" name="name" placeholder="Enter your full name">
-    </fieldset>
-    <fieldset>
+      <input id="name" type="text" name="name" placeholder="Enter your full name" required>
+    </div>
+    <div class="form-group">
       <label for="title">Title:</label>
-      <input id="title" type="text" name="title" placeholder="Write your title">
-    </fieldset>
-    <fieldset>
+      <input id="title" type="text" name="title" placeholder="Write your title" required>
+    </div>
+    <div class="form-group">
       <label for="bio">Bio:</label>
-      <input id="bio" type="textarea" name="bio" placeholder="Write your bio">
-    </fieldset>
-    <fieldset>
+      <textarea rows="8" cols="40" id="bio" type="textarea" name="bio" placeholder="Write your bio" class="form-control">
+      </textarea>
+    </div>
+    <div class="form-group">
       <label for="img">Image:</label>
       <input id="img" type="text" name="img" placeholder="Upload your image here">
-    </fieldset>
-    <fieldset>
+    </div>
+    <div class="form-group">
       <label for="accomplishments">Accomplishments:</label>
-      <input id="accomplishments" type="text" name="accomplishments" placeholder="Use a comma to seperate each accomplishment">
-    </fieldset>
-    <fieldset>
+      <textarea rows="8" cols="40" id="accomplishments" type="text" name="accomplishments" placeholder="Use a comma to seperate each accomplishment" lass="form-control">
+        </textarea>
+    </div>
+    <div class="form-group">
       <label for="contact">Contact:</label>
       <input id="contact" type="text" name="contact" placeholder="List the best way to contact you">
-    </fieldset>
-    <fieldset>
+    </div>
+    <div class="form-group">
       <label for="location">Location:</label>
       <input id="location" type="text" name="location" placeholder="City, State, Country">
-    </fieldset>
-    <fieldset>
-      <label for="tags">tags:</label>
+    </div>
+    <div class="form-group">
+      <label for="tags">Tags:</label>
       <input id="tags" type="text" name="tags" placeholder="Use a comma to seperate each accomplishment">
-    </fieldset>
+    </div>
     <input type="submit" value="Submit">
   </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <%- include('./partials/footer.ejs') %>

@@ -1,38 +1,51 @@
 <%- include('./partials/header.ejs') %>
-<div class="container">
-<div class="row">
-<div class="col-4">
-  <a href="/members">Lumin8</a>
-</div>
-<div class="col-8">
-    <a href="/members/new">Add a New Member</a>
-<form action="" method="POST">
-<input type="search" id="search" name="search" placeholder="search">
+<div class="col-10 pt-4">
+    <a href="/members/new"><h5 style="text-align:right;">Add a New Member</h5></a>
+  <form action="" method="POST">
+<input type="search" id="search" name="search" class="form-control" placeholder="Search" aria-label="search">
 </form>
 <form action="/members/<%=member.id%>?_method=PUT" method="POST">
-<table>
-<tr>
-<th>
-  <label for="img">Image:</label>
-  <input id="img" type="text" name="img" placeholder="Upload your image here" width="150" height="200 ">
-</th>
-<th>
-  <label for="name">Name:</label>
-    <input id="name" type="text" name="name" placeholder="Enter your full name">
-    <label for="title">Title:</label>
-    <input id="title" type="text" name="title" placeholder="Write your title">
-    <label for="location">Location:</label>
-    <input id="location" type="text" name="location" placeholder="City, State, Country">
-    <label for="bio">Bio:</label>
-    <input id="bio" type="textarea" name="bio" placeholder="Write your bio">
-</th>
-<th>
-  <label for="accomplishments">Accomplishments:</label>
-  <input id="accomplishments" type="text" name="accomplishments" placeholder="Use a comma to seperate each accomplishment">
-  <input type="submit" value="Save">
-</th>
-</tr>
-</table>
+<div class="container pt-5">
+<div class="row">
+<div class="col">
+  <div class="form-group">
+    <label for="img">Image:</label>
+    <input id="img" type="text" name="img" placeholder="Upload your image here" width="150" height="200">
+  </div>
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input id="name" type="text" name="name" placeholder="Enter your full name" required>
+    </div>
+    <div class="form-group">
+      <label for="title">Title:</label>
+      <input id="title" type="text" name="title" placeholder="Write your title" required>
+    </div>
+    <div class="form-group">
+      <label for="contact">Contact:</label>
+      <input id="contact" type="text" name="contact" placeholder="List the best way to contact you">
+    </div>
+    <div class="form-group">
+      <label for="location">Location:</label>
+      <input id="location" type="text" name="location" placeholder="City, State, Country">
+    </div>
+    <div class="form-group">
+      <label for="bio">Bio:</label>
+      <textarea rows="8" cols="40" id="bio" type="textarea" name="bio" placeholder="Write your bio" class="form-control">
+      </textarea>
+    </div>
+    <div class="form-group">
+      <label for="accomplishments">Accomplishments:</label>
+      <textarea rows="8" cols="40" id="accomplishments" type="text" name="accomplishments" placeholder="Use a comma to seperate each accomplishment" lass="form-control">
+        </textarea>
+    </div>
+    <div class="form-group">
+      <label for="tags">Tags:</label>
+      <input id="tags" type="text" name="tags" placeholder="Use a comma to seperate each accomplishment">
+    </div>
+    <input type="submit" value="Save">
+</div>
+</div>
+</div>
 </form>
 </div>
 </div>

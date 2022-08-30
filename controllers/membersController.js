@@ -4,7 +4,7 @@ const Member = require('../models/members.js')
 
 //INDEX
 router.get('/', (req, res) => {
-	const perPage = 5
+	const perPage = 20
 	const page = req.params.page || 1
 
 	Member
@@ -78,7 +78,7 @@ router.put('/:id', (req, res) => {
 
 //PAGINATION
 router.get('/page/:page/', (req, res) => {
-	const perPage = 5
+	const perPage = 20
 	const page = req.params.page || 1
 
 	Member

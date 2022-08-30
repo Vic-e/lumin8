@@ -1,13 +1,8 @@
 <%- include('./partials/header.ejs') %>
-<div class="container">
-<div class="row">
-<div class="col-4">
-  <a href="/members">Lumin8</a>
-</div>
-<div class="col-8">
-    <a href="/members/new">Add a New Member</a>
+<div class="col-10 pt-4">
+  <a href="/members/new"><h5 style="text-align:right;">Add a New Member</h5></a>
 <form action="" method="POST">
-<input type="search" id="search" name="search" placeholder="search">
+<input type="search" id="search" name="search" class="form-control" placeholder="Search" aria-label="search">
 </form>
   <span>
     <a href="/members/<%=member.id%>/edit"> <button>EDIT</button></a>
@@ -15,31 +10,32 @@
   <form action="/members/<%=member.id%>?_method=DELETE" method="POST">
     <input type="submit" value="DELETE"/>
   </form>
-<table>
-<tr>
-<th>
- <img src="<%=member.img%>" width="150px">
- <h6><%= member.contact %></h6>
-</th>
-<th>
+<div class="container">
+<div class="row">
+<div class="col-md-auto">
+ <img src="<%=member.img%>" width="300px">
+ <h6>Twitter:<%= member.contact.twitter%></h6>
+ <h6>Instagram:<%= member.contact.instagram%></h6>
+</div>
+<div class="col-md-auto">
 <h4><%= member.name %></h4>
 <h6><%= member.title %></h6>
 <h6><%= member.location %></h6>
   <p><%= member.bio %></p>
   <% for(let j = 0; j < member.tags.length; j++){%>
-    <span class="badge bg-secondary"><%= member.tags[j] %></span>
+    <span class="badge bg-dark"><%= member.tags[j] %></span>
   <%}%>
-</th>
-<th>
+</div>
+<div class="col-md-auto">
 <h6>Accomplishments</h6>
 <ul>
   <% for(let k =0; k < member.accomplishments.length; k++){%>
-  <li><%= member.accomplishments[k] %></li>
+  <li class="ast"><%= member.accomplishments[k] %></li>
 <%}%>
 </ul>
-</th>
-</tr>
-</table>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
