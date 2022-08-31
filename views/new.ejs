@@ -1,42 +1,51 @@
 <%- include('./partials/header.ejs') %>
 <div class="col-10 pt-4">
+<h2>Add a New Member</h2>
+<span><sup style="color:#9e1a1a">*</sup>Indicates a required field</span>
 <div class="container pt-5">
 <div class="row">
 <div class="col">
-<form method="POST" action="/members">
+<form method="POST" action="/members" autocomplete="on">
     <div class="form-group">
-      <label for="name">Name:</label>
-      <input id="name" type="text" name="name" placeholder="Enter your full name" required>
-    </div>
-    <div class="form-group">
-      <label for="title">Title:</label>
-      <input id="title" type="text" name="title" placeholder="Write your title" required>
-    </div>
-    <div class="form-group">
-      <label for="bio">Bio:</label>
-      <textarea rows="8" cols="40" id="bio" type="textarea" name="bio" placeholder="Write your bio">
-      </textarea>
+      <label for="name"><sup style="color:#9e1a1a">*</sup>Name:</label>
+      <input id="name" type="text" name="name" placeholder="Enter your full name" class="form-control" required>
     </div>
     <div class="form-group">
       <label for="img">Image:</label>
-      <input id="img" type="text" name="img" placeholder="Upload your image here">
+      <input id="img" type="text" name="img" placeholder="Upload your image here" class="form-control">
     </div>
     <div class="form-group">
-      <label for="accomplishments">Accomplishments:</label>
-      <textarea rows="8" cols="40" id="accomplishments" type="text" name="accomplishments" placeholder="Use a comma to seperate each accomplishment">
-        </textarea>
+      <label for="title"><sup style="color:#9e1a1a">*</sup>Title:</label>
+      <input id="title" type="text" name="title" placeholder="Write your title" class="form-control" required>
     </div>
     <div class="form-group">
-      <label for="contact">Contact:</label>
-      <input id="contact" type="text" name="contact" placeholder="List the best way to contact you">
+      <label for="bio">Bio:</label>
+      <textarea rows="8" cols="40" id="bio" type="textarea" name="bio" class="form-control" autocomplete="off">Write your bio</textarea>
+    </div>
+
+    <div class="form-group">
+    <br/><span>Contact Info</span><br/>
+        <label for="twitter">Twitter:</label>
+            <input id="member.contact.twitter" type="text" name="twitter" placeholder="List the best way to contact you" class="form-control" autocomplete="off">
+        <label for="instagram">Instagram:</label>
+            <input id="member.contact.instagram" type="text" name="instagram" placeholder="List the best way to contact you" class="form-control" autocomplete="off">
+        <label for="linkedin">Linkedin:</label>
+          <input id="member.contact.linkedin" type="text" name="linkedin" placeholder="List the best way to contact you" class="form-control" autocomplete="off">
+        <label for="website">Website:</label>
+          <input id="member.contact.website" type="text" name="website" placeholder="List the best way to contact you" class="form-control" autocomplete="off">
+    </div>
+
+    <div class="form-group">
+    <br/><label for="location">Location:</label>
+      <input id="location" type="text" name="location" placeholder="City, State, Country" class="form-control">
     </div>
     <div class="form-group">
-      <label for="location">Location:</label>
-      <input id="location" type="text" name="location" placeholder="City, State, Country">
+      <label for="accomplishments"><sup style="color:#9e1a1a">*</sup>Accomplishments:</label>
+      <textarea rows="8" cols="40" id="accomplishments" type="text" name="accomplishments" class="form-control" autocomplete="off" required>Use a comma to seperate each accomplishment </textarea>
     </div>
-    <div class="form-group">
+    <div class="form-group pb-3">
       <label for="tags">Tags:</label>
-      <input id="tags" type="text" name="tags" placeholder="Use a comma to seperate each accomplishment">
+      <input id="tags" type="text" name="tags" placeholder="Share your expertise and background. Use a comma to seperate tags" class="form-control" autocomplete="off">
     </div>
     <input type="submit" value="Submit">
   </form>

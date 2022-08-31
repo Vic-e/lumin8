@@ -4,44 +4,48 @@
 <form action="" method="POST">
 <input type="search" id="search" name="search" class="form-control" placeholder="Search" aria-label="search">
 </form>
+
+<h2>Member Profile</h2>
+
   <section class="pt-4 pb-4">
     <div class="d-flex mb-2 justify-content-end">
       <div><a href="/members/<%=member.id%>/edit"> <button>EDIT</button></a></div>
     <form action="/members/<%=member.id%>?_method=DELETE" method="POST">
       <input type="submit" value="DELETE"/>
     </form>
-    </div>
-  </section>
+</section>
+
 <div class="container">
-<div class="row">
-<div class="col-md-auto">
- <img src="<%=member.img%>" width="300px">
- <div class="d-flex justify-content-end">
- <h3><i class="bi bi-twitter"></i><%= member.contact.twitter%></h3>
- <h3><i class="bi bi-instagram"></i><%= member.contact.instagram%></h3>
- <h3><i class="bi bi-linkedin"></i><%= member.contact.linkedin%></h3>
- <h3><i class="bi bi-window-sidebar"></i><%= member.contact.website%></h3>
- </div>
-</div>
-<div class="col-md-auto">
-<h4><%= member.name %></h4>
-<h6><%= member.title %></h6>
-<h6><i class="bi bi-geo-alt-fill"></i><%= member.location %></h6>
+  <div class="row">
+    <div class="col-md-auto" style="width:310px">
+      <img src="<%=member.img%>" width="300px">
+      <div class="d-flex justify-content-end">
+      <a href="<%= member.contact.twitter%>"><h3><i class="bi bi-twitter"></i></h3></a>
+      <a href="<%= member.contact.instagram%>"><h3><i class="bi bi-instagram"></i></h3></a>
+      <a href="<%= member.contact.linkedin%>"><h3><i class="bi bi-linkedin"></i></h3></a>
+      <a href="<%= member.contact.website%>"><h3><i class="bi bi-window-sidebar"></i></h3></a>
+    </div>
+  </div>
+ <div class="col-md-auto">
+  <h4><%= member.name %></h4>
+  <h6><%= member.title %></h6>
+  <h6><i class="bi bi-geo-alt-fill"></i><%= member.location %></h6>
   <p><%= member.bio %></p>
   <% for(let j = 0; j < member.tags.length; j++){%>
     <span class="badge bg-dark"><%= member.tags[j] %></span>
   <%}%>
-</div>
-<div class="col-md-auto">
-<h6>Accomplishments</h6>
-<ul>
+  </div>
+  <div class="col-md-auto">
+  <h6>Accomplishments</h6>
+  <ul>
   <% for(let k =0; k < member.accomplishments.length; k++){%>
-  <li class="ast"><%= member.accomplishments[k] %></li>
-<%}%>
-</ul>
+    <li class="ast"><%= member.accomplishments[k] %></li>
+    <%}%>
+  </ul>
+  </div>
+  </div>
 </div>
-</div>
-</div>
+
 </div>
 </div>
 </div>
