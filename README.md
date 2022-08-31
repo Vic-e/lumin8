@@ -32,5 +32,7 @@ https://media.git.generalassemb.ly/user/43707/files/f2931ada-9361-4186-9f9a-fac3
 <li>Users can view only 20 profiles per page.</li>
 </ul>
 
+Link to live site: https://lumin8-project.herokuapp.com/members
+
 <h2>Stretch Goals</h2>
 <p>In the future I plan to add a search bar for users to search via profile tags. I also want to change the page to only list five profiles as 20 is a bit much. I want to make the site a bit more mobile-friendly. I also want to make the tags checkbox to help better define the content submitted. I want to add a sign in and sign out function to make the site data secure so users cant just delete or update a random profile. </p>
