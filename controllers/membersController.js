@@ -50,7 +50,7 @@ router.get('/seed', (req, res) =>{
 		"title": "CEO, Da Spot NYC and YES I AM, Inc",
 		"img":"https://boldculturehub.com/wp-content/uploads/2021/04/Michelle-Cadore-headshot.jpeg",
 		"bio": "Michelle Cadore is the Designer, CEO, and visionary behind YES I AM, Inc, which she established in 2016.A true renaissance woman, Michelle is also the Co-Owner of DA SPOT NYC, a unique fashion boutique located in Downtown Brooklyn. DA SPOT features 25+ independent creative brands by people of color including YES I AM and the C.A.N.V.A.S Art Gallery. ",
-		"accomplishments":["Mastercard Strivers Initiative", "She Can Thrive 2020 Recipien", "1010 WINS Dime Community Bank Challenge 10K grant winner"],
+		"accomplishments":["Mastercard Strivers Initiative", "She Can Thrive 2020 Recipient", "1010 WINS Dime Community Bank Challenge 10K grant winner"],
 		"contact": {
 			"twitter": "https://twitter.com/YESIAMINC" ,
 			"instagram": "https://www.instagram.com/yesiam_michellec/?hl=en",
@@ -128,8 +128,40 @@ router.put('/:id', (req, res) => {
 })
 
 //PAGINATION
-router.get('/page/:page/', (req, res) => {
-	const perPage = 20
+// router.get('/page/:page/', (req, res) => {
+// 	const perPage = 20
+// 	const page = req.params.page || 1
+//
+// 	Member
+// 	.find({})
+// 	.skip((perPage * page) - perPage)
+// 	.limit(perPage)
+// 	.exec((error, members) => {
+// 		Member.count().exec((error, count) => {
+// 				res.render('index.ejs', {
+// 					members: members,
+// 					current: page,
+// 					pages:Math.ceil(count/ perPage)
+// 				})
+// 		})
+// 	})
+// })
+
+
+//SEARCH
+// router.post('/search', (req, res) => {
+// 	Member.find({tags: req.body.query},(error) =>{
+// 		if(error){
+// 			console.log("error", error)
+// 			res.send(error)
+// 		} else{
+// 		res.render('search.ejs')}
+// 	})
+// })
+
+//PAGINATION FOR SEARCH
+router.get('/search/:page/', (req, res) => {
+	const perPage = 5
 	const page = req.params.page || 1
 
 	Member
@@ -138,7 +170,7 @@ router.get('/page/:page/', (req, res) => {
 	.limit(perPage)
 	.exec((error, members) => {
 		Member.count().exec((error, count) => {
-				res.render('index.ejs', {
+				res.render('search.ejs', {
 					members: members,
 					current: page,
 					pages:Math.ceil(count/ perPage)
@@ -146,14 +178,6 @@ router.get('/page/:page/', (req, res) => {
 		})
 	})
 })
-
-
-//SEARCH
-// router.get('/search', (req, res) => {
-// 	Member.find( {}, {tag} => {
-// 		res.render('search.ejs')
-// 	)}
-// })
 
 //FILTER BY  QUERY STRING ?
 
